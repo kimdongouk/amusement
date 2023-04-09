@@ -40,7 +40,7 @@ public class ListController {
 			pageNum = Integer.parseInt(pageTemp);
 		}
 		
-		int pageSize = 4;
+		int pageSize = 12;
 		int blockPage = 10;
 		int totalCount = amusementService.selectTotalCount(map);
 		int totalPage = (int)Math.ceil((double)totalCount/pageSize);

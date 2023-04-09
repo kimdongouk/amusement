@@ -389,30 +389,8 @@ body {
 
 	<main class="container px-4 px-lg-5 mt-5">
 		<form id="search-form" action="/list">
-			<div class="btn-group" role="group"
-				aria-label="Basic radio toggle button group">
-				<input type="radio" class="btn-check" name="searchCountry"
-					id="country-radio1" autocomplete="off" value=""> <label
-					class="btn btn-outline-primary index-radio" for="country-radio1">전체</label>
-				<input type="radio" class="btn-check" name="searchCountry"
-					id="country-radio2" value="대한민국" autocomplete="off"> <label
-					class="btn btn-outline-primary index-radio" for="country-radio2">국내</label>
-				<input type="radio" class="btn-check" name="searchCountry"
-					id="country-radio3" value="해외" autocomplete="off"> <label
-					class="btn btn-outline-primary index-radio" for="country-radio3">해외</label>
-			</div>
-			<div class="btn-group" role="group"
-				aria-label="Basic radio toggle button group">
-				<input type="radio" class="btn-check" name="order" id="order-radio1"
-					autocomplete="off" value="최신순"> <label
-					class="btn btn-outline-primary index-radio" for="order-radio1">최신순</label>
-
-				<input type="radio" class="btn-check" name="order" id="order-radio2"
-					value="인기순" autocomplete="off"> <label
-					class="btn btn-outline-primary index-radio" for="order-radio2">인기순</label>
-			</div>
 			<div class="row">
-				<div class="col-2">
+				<div class="col-1">
 					<button class="btn" type="submit">
 						<i class="bi bi-search pr-2"
 							style="font-size: 1.5rem; color: cornflowerblue;"></i>
@@ -426,34 +404,58 @@ body {
 					</div>
 				</div>
 			</div>
-		</form>
-		<div
-			class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 py-4">
-			<c:forEach items="${listData}" var="data">
-				<div class="col mb-5">
-					<div class="card h-100">
-						<a href=""> <img class="custom-card-img" src="${data['url']}"
-							alt="..." />
-						</a>
-						<div data-id="${data['amuse_id']}"
-							class="animate__animated position-absolute heart-wrap"
-							style="width: 35px; top: 10px; right: 10px;">
-							<i class="bi heart" style="font-size: 2rem; color: red;"></i>
-						</div>
-						<div class="card-body p-4">
-							<div class="text-center">${data['a_name']}</div>
+			<div class="row">
+				<div class="btn-group" role="group"
+					aria-label="Basic radio toggle button group">
+					<input type="radio" class="btn-check" name="searchCountry"
+						id="country-radio1" autocomplete="off" value=""> <label
+						class="btn btn-outline-primary index-radio" for="country-radio1">전체</label>
+					<input type="radio" class="btn-check" name="searchCountry"
+						id="country-radio2" value="대한민국" autocomplete="off"> <label
+						class="btn btn-outline-primary index-radio" for="country-radio2">국내</label>
+					<input type="radio" class="btn-check" name="searchCountry"
+						id="country-radio3" value="해외" autocomplete="off"> <label
+						class="btn btn-outline-primary index-radio" for="country-radio3">해외</label>
+				</div>
+				<div class="btn-group" role="group"
+					aria-label="Basic radio toggle button group">
+					<input type="radio" class="btn-check" name="order"
+						id="order-radio1" autocomplete="off" value="최신순"> <label
+						class="btn btn-outline-primary index-radio" for="order-radio1">최신순</label>
+
+					<input type="radio" class="btn-check" name="order"
+						id="order-radio2" value="인기순" autocomplete="off"> <label
+						class="btn btn-outline-primary index-radio" for="order-radio2">인기순</label>
+				</div>
+			</div>
+			<div
+				class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 py-4">
+				<c:forEach items="${listData}" var="data">
+					<div class="col mb-5">
+						<div class="card h-100">
+							<a href=""> <img class="custom-card-img" src="${data['url']}"
+								alt="..." />
+							</a>
+							<div data-id="${data['amuse_id']}"
+								class="animate__animated position-absolute heart-wrap"
+								style="width: 35px; top: 10px; right: 10px;">
+								<i class="bi heart" style="font-size: 2rem; color: red;"></i>
+							</div>
+							<div class="card-body p-4">
+								<div class="text-center">${data['a_name']}</div>
+							</div>
 						</div>
 					</div>
-				</div>
-			</c:forEach>
-		</div>
-		<nav class="d-flex justify-content-center">
-			<div class="btn-toolbar" role="toolbar"
-				aria-label="Toolbar with button groups">
-				<div class="btn-group" role="group" aria-label="Basic example">
-					${listPage}</div>
+				</c:forEach>
 			</div>
-		</nav>
+			<nav class="d-flex justify-content-center">
+				<div class="btn-toolbar" role="toolbar"
+					aria-label="Toolbar with button groups">
+					<div class="btn-group" role="group" aria-label="Basic example">
+						${listPage}</div>
+				</div>
+			</nav>
+		</form>
 	</main>
 
 </body>
