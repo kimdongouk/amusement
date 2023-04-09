@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>index</title>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>List</title>
 <!-- jquery cdn -->
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"
 	integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
@@ -17,41 +17,45 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
 	integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
-	crossorigin="anonymous">
+	crossorigin="anonymous" />
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
 	crossorigin="anonymous"></script>
 <!-- 폰트 설정 -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link
 	href="https://fonts.googleapis.com/css2?family=Hahmlet&display=swap"
-	rel="stylesheet">
+	rel="stylesheet" />
 <!-- 아이콘 cdn-->
 <link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" />
 <!-- 애니메이션 cdn-->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
-<!-- 내가만든 css -->
 <style>
 body {
 	font-family: 'Hahmlet', serif;
 }
+
 .custom-carousel-img {
 	max-width: 100%;
 	height: 280px;
 	object-fit: cover;
 }
+
 .custom-card-img {
 	max-width: 100%;
 	height: 300px;
 	object-fit: cover;
 }
+
 .custom-main-padding {
 	padding-bottom: 200px;
 }
+
 .custom-card-body-height {
 	height: 100px;
 }
@@ -59,39 +63,39 @@ body {
 
 <!-- 로딩 이벤트 -->
 <script type="text/javascript">
-function Loading() {
-    var maskHeight = window.outerHeight;
-    var maskWidth  = window.document.body.clientWidth;
-     
-    var mask       = "<div id='mask' style='position:absolute; z-index:9000; background-color:#ffffff; display:none; left:0; top:0;'></div>";
-    var loadingImg ='';
-     
-    loadingImg +=" <div id='loadingImg'>";
-    loadingImg +=" <img src='/resources/img/loading.gif' style='position:absolute; z-index:9500; display:block; margin:auto; top:50%; left:50%; transform:translate(-50%, -50%);'/>";
-    loadingImg += "</div>";  
- 
-    $('body')
-        .append(mask)
-        .append(loadingImg)
-    $('#mask').css({
-            'width' : maskWidth,
-            'height': maskHeight,
-            'opacity' :'0.5'
-    });
-    $('#mask').show();
-    $('#loadingImg').show();
-}
-
-function closeLoading() {
-     $('#mask, #loadingImg').hide();
-     $('#mask, #loadingImg').remove(); 
-   }
-   
-$(function() {
-   Loading();   
-   setTimeout("closeLoading()", 500);
-   });
-</script>
+	function Loading() {
+	    var maskHeight = window.outerHeight;
+	    var maskWidth  = window.document.body.clientWidth;
+	     
+	    var mask       = "<div id='mask' style='position:absolute; z-index:9000; background-color:#ffffff; display:none; left:0; top:0;'></div>";
+	    var loadingImg ='';
+	     
+	    loadingImg +=" <div id='loadingImg'>";
+	    loadingImg +=" <img src='/resources/img/loading.gif' style='position:absolute; z-index:9500; display:block; margin:auto; top:50%; left:50%; transform:translate(-50%, -50%);'/>";
+	    loadingImg += "</div>";  
+	 
+	    $('body')
+	        .append(mask)
+	        .append(loadingImg)
+	    $('#mask').css({
+	            'width' : maskWidth,
+	            'height': maskHeight,
+	            'opacity' :'0.5'
+	    });
+	    $('#mask').show();
+	    $('#loadingImg').show();
+	}
+	
+	function closeLoading() {
+	     $('#mask, #loadingImg').hide();
+	     $('#mask, #loadingImg').remove(); 
+	   }
+	   
+	$(function() {
+	   Loading();   
+	   setTimeout("closeLoading()", 500);
+	   });
+	</script>
 
 <!-- 즐겨찾기 하트 애니메이션 이벤트 -->
 <script>
@@ -172,17 +176,44 @@ $(function() {
 				
 				});
 		  });
-	  
-	  
   }
 </script>
+<!-- radio 세팅 -->
+<!-- radio선택 시 submit 동작(a태그를 대체하여 나라,정렬,검색 정보를 폼으로 보냄) -->
+<script>
+  $(function() { 
+    const radioLabel = document.querySelectorAll('.index-radio');
+    const form = document.querySelector('#search-form');  
+    var searchCountry = "${searchCountry}";
+    var order = "${order}";
+		
+    
+    radioLabel.forEach((r) => {
+        const radioId = "#"+r.getAttribute('for');
+        const radio = document.querySelector(`${'${radioId}'}`);
+        if (radio.value == searchCountry) {
+       	 radio.setAttribute("checked", "checked");
+        }
+        if (radio.value == order) {
+       	 radio.setAttribute("checked", "checked");
+        }
+    });
+
+    radioLabel.forEach((r) => {
+      r.addEventListener('click', () => {
+        setTimeout(() => {
+         form.submit();
+        },100);
+      });
+    });
+	})
+ </script>
 
 </head>
 <body>
-
 	<header class="container mb-5">
 		<div
-			class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-2 border-bottom" 
+			class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-2 border-bottom"
 			style="height: 130px;">
 			<div class="col-2 ">
 				<a href="/"
@@ -197,7 +228,7 @@ $(function() {
 				<li><a href="#" class="nav-link px-2 link-secondary">고객센터</a></li>
 				<li><a href="#" class="nav-link px-2 link-dark">프로모션</a></li>
 				<li><a href="#" class="nav-link px-2 link-dark">게시판</a></li>
-				<li><a href="/list" class="nav-link px-2 link-danger">놀이공원</a></li>
+				<li><a href="#" class="nav-link px-2 link-danger">놀이공원</a></li>
 			</ul>
 			<div class="col-2 ">
 				<ul class="nav justify-content-end">
@@ -342,9 +373,7 @@ $(function() {
 											</div>
 										</div>
 									</div>
-
 								</div>
-
 							</div>
 						</div>
 					</li>
@@ -355,124 +384,77 @@ $(function() {
 					</li>
 				</ul>
 			</div>
-
 		</div>
 	</header>
 
-	<main class="container custom-main-padding border-bottom">
-		<div class="row">
-      <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-        <c:forEach var="fData" items="${promotionData}">
-          <div class="carousel-item active" >
-            <img class="d-block w-100 custom-carousel-img" src="${fData.promotion_img}" alt="...">
-          </div>
-         </c:forEach>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-    </div>
+	<main class="container px-4 px-lg-5 mt-5">
+		<form id="search-form" action="/list">
+			<div class="btn-group" role="group"
+				aria-label="Basic radio toggle button group">
+				<input type="radio" class="btn-check" name="searchCountry"
+					id="country-radio1" autocomplete="off" value=""> <label
+					class="btn btn-outline-primary index-radio" for="country-radio1">전체</label>
+				<input type="radio" class="btn-check" name="searchCountry"
+					id="country-radio2" value="대한민국" autocomplete="off"> <label
+					class="btn btn-outline-primary index-radio" for="country-radio2">국내</label>
+				<input type="radio" class="btn-check" name="searchCountry"
+					id="country-radio3" value="해외" autocomplete="off"> <label
+					class="btn btn-outline-primary index-radio" for="country-radio3">해외</label>
+			</div>
+			<div class="btn-group" role="group"
+				aria-label="Basic radio toggle button group">
+				<input type="radio" class="btn-check" name="order" id="order-radio1"
+					autocomplete="off" value="최신순"> <label
+					class="btn btn-outline-primary index-radio" for="order-radio1">최신순</label>
 
-		<hr>
-		<div class="row pt-5 pb-2">
-			<h4>
-				<a class="text-decoration-none text-dark" href="#">국내 놀이공원</a>
-			</h4>
-		</div>
-		
-		<div class="album py-5 bg-light ">
-			<div class="container">
-					<div class="row g-5 ">
-			<c:forEach items="${koreaData}" var="kData">
-						<div class="col-3">
-								<div class="card shadow-sm">
-								<div class="position-relative">
-									<a href="" class="text-decoration-none text-dark ">
-										<img
-											src="${kData['url']}"
-											class="custom-card-img" alt="...">
-									</a>
-									<!-- 하트 아이콘 -->
-								  <div data-id="${kData['amuse_id']}" class="animate__animated position-absolute heart-wrap" style="width: 35px; top: 10px; right: 10px;">
-	                	<i class="bi heart" style="font-size: 2rem; color: red;" ></i>
-	              	</div>
-								</div>
-									<div class="card-body custom-card-body-height overflow-hidden">
-										<h5 class="card-title">${kData['a_name']}</h5>
-										<p class="card-text">${kData['a_country']}</p>
-									</div>
-								</div>
-						</div>
-				</c:forEach>
+				<input type="radio" class="btn-check" name="order" id="order-radio2"
+					value="인기순" autocomplete="off"> <label
+					class="btn btn-outline-primary index-radio" for="order-radio2">인기순</label>
+			</div>
+			<div class="row">
+				<div class="col-2">
+					<button class="btn" type="submit">
+						<i class="bi bi-search pr-2"
+							style="font-size: 1.5rem; color: cornflowerblue;"></i>
+					</button>
+				</div>
+				<div class="col">
+					<div class="form-floating mb-3">
+						<input type="search" name="searchName" class="form-control"
+							id="floatingInput" placeholder="놀이공원을 찾아볼까요?"> <label
+							for="floatingInput">놀이공원을 찾아볼까요?</label>
 					</div>
+				</div>
 			</div>
-		</div>
-
-		<hr>
-		<div class="row pt-5 pb-2">
-			<h4>
-				<a class="text-decoration-none text-dark" href="#">해외 놀이공원</a>
-			</h4>
-		</div>
-		
-		<div class="album py-5 bg-light ">
-			<div class="container">
-					<div class="row g-5 ">
-			<c:forEach items="${foreignData}" var="fData">
-						<div class="col-3">
-								<div class="card shadow-sm">
-								<div class="position-relative">
-									<a href="" class="text-decoration-none text-dark ">
-										<img
-											src="${fData['url']}"
-											class="custom-card-img" alt="...">
-									</a>
-									<!-- 하트 아이콘 -->
-								  <div data-id="${fData['amuse_id']}" class="animate__animated position-absolute heart-wrap" style="width: 35px; top: 10px; right: 10px;">
-	                	<i class="bi heart" style="font-size: 2rem; color: red;" ></i>
-	              	</div>
-								</div>
-									<div class="card-body custom-card-body-height overflow-hidden">
-										<h5 class="card-title">${fData['a_name']}</h5>
-										<p class="card-text">${fData['a_country']}</p>
-									</div>
-								</div>
+		</form>
+		<div
+			class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 py-4">
+			<c:forEach items="${listData}" var="data">
+				<div class="col mb-5">
+					<div class="card h-100">
+						<a href=""> <img class="custom-card-img" src="${data['url']}"
+							alt="..." />
+						</a>
+						<div data-id="${data['amuse_id']}"
+							class="animate__animated position-absolute heart-wrap"
+							style="width: 35px; top: 10px; right: 10px;">
+							<i class="bi heart" style="font-size: 2rem; color: red;"></i>
 						</div>
-				</c:forEach>
+						<div class="card-body p-4">
+							<div class="text-center">${data['a_name']}</div>
+						</div>
 					</div>
-			</div>
+				</div>
+			</c:forEach>
 		</div>
-</main>
+		<nav class="d-flex justify-content-center">
+			<div class="btn-toolbar" role="toolbar"
+				aria-label="Toolbar with button groups">
+				<div class="btn-group" role="group" aria-label="Basic example">
+					${listPage}</div>
+			</div>
+		</nav>
+	</main>
 
-	<footer class="container mb-5">
-		<div class="row">
-			<div class="col-3">
-				<ul class="list-group list-group-flush">
-					<li class="list-group-item">고객지원실 운영안내</li>
-					<li class="list-group-item">월~금 09:30~06:30(점심시간 13:15~14:30)
-					</li>
-					<li class="list-group-item">주말/공휴일 제외, 한국시간 기준</li>
-				</ul>
-			</div>
-			<div class="col-2 offset-3">
-				<p>소개</p>
-			</div>
-			<div class="col-2">
-				<p>파트너</p>
-			</div>
-			<div class="col-2">
-				<p>지원</p>
-			</div>
-		</div>
-	</footer>
-
-	</div>
 </body>
 </html>
